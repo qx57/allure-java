@@ -1,5 +1,7 @@
 package org.example.tests;
 
+import io.qameta.allure.Link;
+import io.qameta.allure.Story;
 import org.apache.http.HttpStatus;
 import org.example.tests.providers.CustomDataProvider;
 import org.example.tests.requests.RequestOne;
@@ -13,7 +15,9 @@ public class ExampleTest {
     private RequestTwo requestTwo = new RequestTwo();
     private RequestThree requestThree = new RequestThree();
 
-    @Test
+    @Test(description = "Тестовый тест 1")
+    @Link("TEST-001")
+    @Story("Тестирование Allure Server")
     public void test1() {
         // step1 - send request
         requestOne.sendRequest();
@@ -25,7 +29,9 @@ public class ExampleTest {
         requestOne.checkField("ololo", "123");
     }
 
-    @Test
+    @Test(description = "Тестовый тест 2")
+    @Link("TEST-002")
+    @Story("Тестирование Allure Server")
     public void test2() {
         // step1 - send request
         requestTwo.sendRequest("request");
@@ -34,7 +40,11 @@ public class ExampleTest {
         requestTwo.checkErrorMessage("This is error");
     }
 
-    @Test(dataProvider = "parametrizedTest", dataProviderClass = CustomDataProvider.class)
+    @Test(description = "Тестовый тест 1",
+            dataProvider = "parametrizedTest",
+            dataProviderClass = CustomDataProvider.class)
+    @Link("TEST-003")
+    @Story("Тестирование Allure Server")
     public void test3(String desc, Integer responseCode) {
         // step1 - send request
         requestThree.sendRequest("Parametrized test - " + desc);
