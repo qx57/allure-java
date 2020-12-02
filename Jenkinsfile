@@ -1,4 +1,4 @@
-node('dockerhost') {
+node {
     parameters {
         choice(name: 'ENV', choices: ['test', 'preprod'], description: 'Environment')
     }
