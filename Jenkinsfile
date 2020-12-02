@@ -9,7 +9,7 @@ node {
         }
 
         stage('Java Tests') {
-            withMaven {
+            withMaven(jdk: 'default', maven: 'default') {
                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Denv=${params.ENV}"
             }
         }
