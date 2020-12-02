@@ -40,7 +40,7 @@ public class ExampleTest {
         requestTwo.checkErrorMessage("This is error");
     }
 
-    @Test(description = "Тестовый тест 1",
+    @Test(description = "Тестовый тест 3",
             dataProvider = "parametrizedTest",
             dataProviderClass = CustomDataProvider.class)
     @Link("TEST-003")
