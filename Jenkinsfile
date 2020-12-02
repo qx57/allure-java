@@ -10,7 +10,9 @@ node {
 
         stage('Java Tests') {
             withMaven(jdk: 'default', maven: 'default') {
-                sh "mvn clean test -Dmaven.test.failure.ignore=true -Denv=${params.ENV}"
+                withAllureUpload(projectId: '2', tags: 'regular', results: [[path: 'allure-results']]) {
+                    sh "mvn clean test -Dmaven.test.failure.ignore=true -Denv=${params.ENV}"
+                }
             }
         }
 
