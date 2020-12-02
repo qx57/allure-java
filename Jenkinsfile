@@ -9,7 +9,7 @@ node {
         }
 
         stage('Java Tests') {
-            docker.image('maven:latest').inside("--cpus=2 --memory=2G") {
+            withMaven {
                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Denv=${params.ENV}"
             }
         }
