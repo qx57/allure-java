@@ -125,14 +125,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.13.5</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-ee-testng</artifactId>
-            <version>3.28.2</version>
+            <version>2.14.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -143,7 +136,7 @@
             <dependency>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-testng</artifactId>
-                <version>2.13.5</version>
+                <version>2.14.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
