@@ -5,14 +5,12 @@ node {
 
     timestamps {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+            checkout scm
         }
 
         stage('Java Tests') {
-            docker.image('maven:latest').inside("--cpus=2 --memory=2G") {
-                withAllureUpload(serverId: 'localhost', projectId: '1', results: [[path: 'allure-results']]) {
+            withMaven(jdk: 'default', maven: 'default') {
+                withAllureUpload(projectId: '2', tags: 'regular', results: [[path: 'allure-results']]) {
                     sh "mvn clean test -Dmaven.test.failure.ignore=true -Denv=${params.ENV}"
                 }
             }
