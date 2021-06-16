@@ -12,7 +12,9 @@ node {
 
         stage('Java Tests') {
             docker.image('maven:latest').inside("--cpus=2 --memory=2G") {
-                sh "mvn clean test -Dmaven.test.failure.ignore=true -Denv=${params.ENV}"
+                withAllureUpload(serverId: 'localhost', projectId: '1', results: [[path: 'allure-results']]) {
+                    sh "mvn clean test -Dmaven.test.failure.ignore=true -Denv=${params.ENV}"
+                }
             }
         }
 
